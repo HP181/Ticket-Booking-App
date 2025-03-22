@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\Notification;
-use App\Models\TicketType;
+use App\Mail\BookingConfirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 
@@ -52,7 +53,7 @@ class PaymentController extends Controller
                     'quantity' => $booking->quantity,
                 ]],
                 'mode' => 'payment',
-                'success_url' => route('payment.success', ['bookingId' => $booking->id, 'session_id' => '{CHECKOUT_SESSION_ID}']),
+                'success_url' => route('payment.success', ['bookingId' => $booking->id]) . '?session_id={CHECKOUT_SESSION_ID}',
                 'cancel_url' => route('payment.cancel', ['bookingId' => $booking->id]),
             ]);
             
@@ -82,7 +83,8 @@ class PaymentController extends Controller
         Stripe::setApiKey(env('STRIPE_SECRET'));
         
         try {
-            $session = Session::retrieve($request->session_id);
+            $sessionId = $request->query('session_id');
+            $session = Session::retrieve($sessionId);
             
             if ($session->payment_status === 'paid') {
                 return $this->handleSuccessfulPayment($bookingId, 'stripe', $session->id);
@@ -104,7 +106,14 @@ class PaymentController extends Controller
 
     private function handleSuccessfulPayment($bookingId, $paymentMethod, $transactionId)
     {
-        $booking = Booking::findOrFail($bookingId);
+        // Change from findOrFail to where()->first() to ensure a single model is returned
+        $booking = Booking::with(['event', 'ticketType', 'user'])
+                         ->where('id', $bookingId)
+                         ->first();
+
+        if (!$booking) {
+            throw new \Exception("Booking not found");
+        }
         
         DB::beginTransaction();
         
@@ -123,7 +132,7 @@ class PaymentController extends Controller
                 'status' => 'completed',
                 'payment_date' => now(),
             ]);
-            
+
             // Create notification
             Notification::create([
                 'user_id' => $booking->user_id,
@@ -133,15 +142,82 @@ class PaymentController extends Controller
             
             DB::commit();
             
-            // Send email confirmation (in real app)
-            // Mail::to($booking->user->email)->send(new BookingConfirmation($booking));
+            // Send email confirmation
+            Mail::to($booking->user->email)->send(new BookingConfirmation($booking));
             
             return redirect()->route('bookings.show', $booking->id)
-                            ->with('success', 'Payment completed successfully! Your booking is now confirmed.');
+                ->with('success', 'Payment completed successfully! Your booking is now confirmed.');
+
         } catch (\Exception $e) {
-            DB::rollBack();
+           DB::rollBack();
             return redirect()->route('payment.create', $booking->id)
                             ->with('error', 'An error occurred while processing your payment: ' . $e->getMessage());
         }
+    }
+
+    public function handleWebhook(Request $request)
+    {
+        $payload = $request->getContent();
+        $sig_header = $request->header('Stripe-Signature');
+        $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
+
+        try {
+            $event = \Stripe\Webhook::constructEvent(
+                $payload, $sig_header, $endpoint_secret
+            );
+        } catch(\UnexpectedValueException $e) {
+            // Invalid payload
+            return response()->json(['error' => 'Invalid payload'], 400);
+        } catch(\Stripe\Exception\SignatureVerificationException $e) {
+            // Invalid signature
+            return response()->json(['error' => 'Invalid signature'], 400);
+        }
+
+        // Handle the event
+        switch ($event->type) {
+            case 'payment_intent.succeeded':
+                $paymentIntent = $event->data->object;
+                // Find the booking by transaction ID (stored in metadata)
+                if (isset($paymentIntent->metadata->booking_id)) {
+                    // Change from find to where()->first() to ensure a single model is returned
+                    $booking = Booking::with(['user', 'event', 'ticketType'])
+                                     ->where('id', $paymentIntent->metadata->booking_id)
+                                     ->first();
+                    
+                    if ($booking) {
+                        $booking->status = 'confirmed';
+                        $booking->save();
+                        
+                        // Create payment record if it doesn't exist
+                        if (!$booking->payment) {
+                            Payment::create([
+                                'booking_id' => $booking->id,
+                                'payment_method' => 'stripe',
+                                'transaction_id' => $paymentIntent->id,
+                                'amount' => $booking->total_amount,
+                                'currency' => strtoupper($paymentIntent->currency),
+                                'status' => 'completed',
+                                'payment_date' => now(),
+                            ]);
+                        }
+                        
+                        // Send email notification
+                        Mail::to($booking->user->email)->send(new BookingConfirmation($booking));
+                    }
+                }
+                break;
+            case 'payment_intent.payment_failed':
+                $paymentIntent = $event->data->object;
+                if (isset($paymentIntent->metadata->booking_id)) {
+                    $booking = Booking::where('id', $paymentIntent->metadata->booking_id)->first();
+                    if ($booking) {
+                        $booking->status = 'payment_failed';
+                        $booking->save();
+                    }
+                }
+                break;
+        }
+
+        return response()->json(['success' => true]);
     }
 }
