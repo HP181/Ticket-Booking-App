@@ -74,17 +74,33 @@ class AdminController extends Controller
         return view('admin.bookings', compact('bookings'));
     }
 
-    public function generateReport()
-    {
-        $eventStats = Event::selectRaw('COUNT(*) as total')
-                          ->selectRaw('SUM(CASE WHEN is_published = 1 THEN 1 ELSE 0 END) as published')
+    public function generateReport(Request $request)
+{
+    $eventStats = Event::selectRaw('COUNT(*) as total')
+                      ->selectRaw('SUM(CASE WHEN is_published = 1 THEN 1 ELSE 0 END) as published')
+                      ->first();
+    
+    $bookingStats = Booking::selectRaw('COUNT(*) as total')
+                          ->selectRaw('SUM(CASE WHEN status = "confirmed" THEN 1 ELSE 0 END) as confirmed')
+                          ->selectRaw('SUM(total_amount) as revenue')
                           ->first();
+    
+    // If date range is provided, generate period-specific stats
+    if ($request->has('start_date') && $request->has('end_date')) {
+        $startDate = $request->start_date;
+        $endDate = $request->end_date;
         
-        $bookingStats = Booking::selectRaw('COUNT(*) as total')
-                              ->selectRaw('SUM(CASE WHEN status = "confirmed" THEN 1 ELSE 0 END) as confirmed')
-                              ->selectRaw('SUM(total_amount) as revenue')
-                              ->first();
+        $periodStats = new \stdClass();
+        $periodStats->events_created = Event::whereBetween('created_at', [$startDate, $endDate])->count();
+        $periodStats->events_happening = Event::whereBetween('event_date', [$startDate, $endDate])->count();
+        $periodStats->bookings_created = Booking::whereBetween('created_at', [$startDate, $endDate])->count();
+        $periodStats->revenue_generated = Booking::whereBetween('created_at', [$startDate, $endDate])
+                                            ->where('status', 'confirmed')
+                                            ->sum('total_amount');
         
-        return view('admin.report', compact('eventStats', 'bookingStats'));
+        return view('admin.report', compact('eventStats', 'bookingStats', 'periodStats'));
     }
+    
+    return view('admin.report', compact('eventStats', 'bookingStats'));
+}
 }

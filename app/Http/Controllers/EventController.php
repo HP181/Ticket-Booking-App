@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\TicketType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Services\LoggingService;
 
 class EventController extends Controller
 {
@@ -18,17 +19,17 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::where('is_published', true)
-                      ->whereDate('event_date', '>=', now())
-                      ->orderBy('event_date', 'asc')
-                      ->paginate(9);
-        
+            ->whereDate('event_date', '>=', now())
+            ->orderBy('event_date', 'asc')
+            ->paginate(9);
+
         return view('events.index', compact('events'));
     }
 
     public function show($id)
     {
         $event = Event::with('ticketTypes')->findOrFail($id);
-        
+
         return view('events.show', compact('event'));
     }
 
@@ -51,13 +52,20 @@ class EventController extends Controller
 
         $data = $request->except('image');
         $data['user_id'] = auth()->id();
-        
+
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('events', 'public');
             $data['image'] = $path;
         }
 
         $event = Event::create($data);
+
+        // Add logging
+        LoggingService::logCrudEvent('Event', 'created', [
+            'id' => $event->id,
+            'user_id' => auth()->id(),
+            'title' => $event->title,
+        ]);
 
         return redirect()->route('events.edit', $event->id)->with('success', 'Event created successfully. Now add ticket types.');
     }
@@ -66,14 +74,14 @@ class EventController extends Controller
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($id);
         $ticketTypes = TicketType::where('event_id', $id)->get();
-        
+
         return view('events.edit', compact('event', 'ticketTypes'));
     }
 
     public function update(Request $request, $id)
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($id);
-        
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -85,18 +93,24 @@ class EventController extends Controller
         ]);
 
         $data = $request->except('image');
-        
+
         if ($request->hasFile('image')) {
             // Delete old image if exists
             if ($event->image) {
                 Storage::disk('public')->delete($event->image);
             }
-            
+
             $path = $request->file('image')->store('events', 'public');
             $data['image'] = $path;
         }
 
         $event->update($data);
+
+        LoggingService::logCrudEvent('Event', 'updated', [
+            'id' => $event->id,
+            'user_id' => auth()->id(),
+            'title' => $event->title,
+        ]);
 
         return redirect()->route('organizer.events')->with('success', 'Event updated successfully');
     }
@@ -104,7 +118,7 @@ class EventController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($id);
-        
+
         $event->is_published = !$event->is_published;
         $event->save();
 
@@ -115,13 +129,18 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($id);
-        
+
         // Delete the event image if exists
         if ($event->image) {
             Storage::disk('public')->delete($event->image);
         }
-        
+
         $event->delete();
+
+        LoggingService::logCrudEvent('Event', 'deleted', [
+            'id' => $id,
+            'user_id' => auth()->id(),
+        ]);
 
         return redirect()->route('organizer.events')->with('success', 'Event deleted successfully');
     }
@@ -130,14 +149,14 @@ class EventController extends Controller
     public function createTicketType($eventId)
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($eventId);
-        
+
         return view('events.create-ticket-type', compact('event'));
     }
 
     public function storeTicketType(Request $request, $eventId)
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($eventId);
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -161,7 +180,7 @@ class EventController extends Controller
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($eventId);
         $ticketType = TicketType::where('event_id', $eventId)->findOrFail($ticketTypeId);
-        
+
         return view('events.edit-ticket-type', compact('event', 'ticketType'));
     }
 
@@ -169,7 +188,7 @@ class EventController extends Controller
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($eventId);
         $ticketType = TicketType::where('event_id', $eventId)->findOrFail($ticketTypeId);
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -179,7 +198,7 @@ class EventController extends Controller
 
         // Calculate the difference in quantity
         $quantityDifference = $request->quantity - $ticketType->quantity;
-        
+
         $ticketType->update([
             'name' => $request->name,
             'description' => $request->description,
@@ -195,12 +214,12 @@ class EventController extends Controller
     {
         $event = Event::where('user_id', auth()->id())->findOrFail($eventId);
         $ticketType = TicketType::where('event_id', $eventId)->findOrFail($ticketTypeId);
-        
+
         // Check if there are any bookings for this ticket type
         if ($ticketType->bookings()->count() > 0) {
             return redirect()->route('events.edit', $eventId)->with('error', 'Cannot delete ticket type with existing bookings');
         }
-        
+
         $ticketType->delete();
 
         return redirect()->route('events.edit', $eventId)->with('success', 'Ticket type deleted successfully');

@@ -13,6 +13,7 @@ use App\Mail\BookingUpdated;
 use App\Mail\BookingCancelled;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
+use App\Services\LoggingService;
 
 class BookingController extends Controller
 {
@@ -50,6 +51,13 @@ class BookingController extends Controller
                 'quantity' => $request->quantity,
                 'status' => 'pending',
                 'total_amount' => $ticketType->price * $request->quantity,
+            ]);
+
+            LoggingService::logCrudEvent('Booking', 'created', [
+                'id' => $booking->id,
+                'user_id' => auth()->id(),
+                'event_id' => $eventId,
+                'total_amount' => $booking->total_amount,
             ]);
             
             // Reduce available tickets
@@ -207,6 +215,13 @@ public function update(Request $request, $id)
         $booking->quantity = $request->quantity;
         $booking->total_amount = $newTotalAmount;
         $booking->save();
+
+        LoggingService::logCrudEvent('Booking', 'updated', [
+            'id' => $booking->id,
+            'user_id' => auth()->id(),
+            'quantity' => $booking->quantity,
+            'total_amount' => $booking->total_amount,
+        ]);
         
         // Create notification
         Notification::create([
@@ -309,6 +324,12 @@ public function cancelBooking(Request $request, $id)
         // Update booking status
         $booking->status = 'cancelled';
         $booking->save();
+
+        LoggingService::logCrudEvent('Booking', 'cancelled', [
+            'id' => $booking->id,
+            'user_id' => auth()->id(),
+            'event_id' => $booking->event_id,
+        ]);
         
         // Create notification
         Notification::create([

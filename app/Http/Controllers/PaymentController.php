@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
+use App\Services\LoggingService;
 
 class PaymentController extends Controller
 {
@@ -131,6 +132,14 @@ class PaymentController extends Controller
                 'currency' => 'USD',
                 'status' => 'completed',
                 'payment_date' => now(),
+            ]);
+
+            LoggingService::logCrudEvent('Payment', 'created', [
+                'booking_id' => $booking->id,
+                'user_id' => $booking->user_id,
+                'amount' => $booking->total_amount,
+                'payment_method' => $paymentMethod,
+                'transaction_id' => $transactionId,
             ]);
 
             // Create notification
