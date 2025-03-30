@@ -37,7 +37,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
     Route::get('/bookings/{id}/verify', [BookingController::class, 'verifyBooking'])->name('bookings.verify');
 
-    // Payments
+    // Additional Payment Routes for Booking Updates
+    Route::get('/payment/additional/{bookingId}', [PaymentController::class, 'additionalPayment'])->name('payment.additional');
+    Route::post('/payment/process-additional/{bookingId}', [PaymentController::class, 'processAdditionalPayment'])->name('payment.process.additional');
+    Route::post('/payment/{bookingId}/stripe-additional', [PaymentController::class, 'processStripeAdditional'])->name('payment.process.stripe.additional');
+    Route::get('/payment/{bookingId}/additional-success', [PaymentController::class, 'additionalSuccess'])->name('payment.additional.success');
+    Route::get('/payment/{bookingId}/additional-cancel', [PaymentController::class, 'additionalCancel'])->name('payment.additional.cancel');
+
+    // Standard Payments
     Route::get('/payments/{bookingId}', [PaymentController::class, 'create'])->name('payment.create');
     Route::post('/payments/{bookingId}/stripe', [PaymentController::class, 'processStripePayment'])
         ->name('payment.process.stripe');
