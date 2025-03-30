@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Event;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class EventCRUDTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use DatabaseTransactions, WithFaker;
 
     protected $organizer;
 

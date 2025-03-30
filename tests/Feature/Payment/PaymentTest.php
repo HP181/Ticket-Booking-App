@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Payment;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Event;
@@ -12,7 +12,7 @@ use App\Models\Payment;
 
 class PaymentTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     protected $attendee;
     protected $booking;
