@@ -43,10 +43,17 @@
                 </table>
             </div>
             
-            <div class="d-flex justify-content-center mt-4">
+            <div class="d-flex justify-content-center mt-4 ">
                 {{ $users->links() }}
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .pagination svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+</style>
 @endsection
