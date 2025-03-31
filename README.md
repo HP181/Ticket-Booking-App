@@ -91,8 +91,8 @@ A comprehensive Laravel-based application for managing events, ticket sales, and
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/event-booking-system.git
-   cd event-booking-system
+   git clone https://github.com/HP181/Ticket-Booking-App.git
+   cd Ticket-Booking-App
    ```
 
 2. **Install dependencies**
@@ -113,7 +113,7 @@ A comprehensive Laravel-based application for managing events, ticket sales, and
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=event_booking
+   DB_DATABASE=event_ticket_system
    DB_USERNAME=root
    DB_PASSWORD=
    ```
@@ -275,8 +275,8 @@ php artisan test
 
 2. **Deploy the application**
    ```bash
-   git clone https://github.com/yourusername/event-booking-system.git
-   cd event-booking-system
+   git clone https://github.com/HP181/Ticket-Booking-App.git
+   cd Ticket-Booking-App
    composer install --optimize-autoloader --no-dev
    npm install
    npm run build
