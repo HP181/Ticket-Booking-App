@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\Users\HP\Desktop\Humber\sem 3\Php\Laravel Project\event-ticket-system\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.9" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.9" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.9" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">C:\Users\HP\Desktop\Humber\sem 3\Php\Laravel Project\event-ticket-system\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#10">App\Http\Controllers\AdminController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmPasswordController.php.html#8">App\Http\Controllers\Auth\ConfirmPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerificationController.php.html#8">App\Http\Controllers\Auth\VerificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganizerController.php.html#9">App\Http\Controllers\OrganizerController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Notification.php.html#8">App\Models\Notification</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Payment.php.html#8">App\Models\Payment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TicketType.php.html#8">App\Models\TicketType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/LoggingService.php.html#7">App\Services\LoggingService</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#17">App\Http\Controllers\PaymentController</a></td><td class="text-right">36%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#18">App\Http\Controllers\BookingController</a></td><td class="text-right">43%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#11">App\Http\Controllers\EventController</a></td><td class="text-right">49%</td></tr>
+       <tr><td><a href="Models/User.php.html#11">App\Models\User</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Http/Middleware/CheckRole.php.html#9">App\Http\Middleware\CheckRole</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Event.php.html#8">App\Models\Event</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#14">App\Providers\AppServiceProvider</a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#17">App\Http\Controllers\PaymentController</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#18">App\Http\Controllers\BookingController</a></td><td class="text-right">242</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#10">App\Http\Controllers\AdminController</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#11">App\Http\Controllers\EventController</a></td><td class="text-right">71</td></tr>
+       <tr><td><a href="Http/Middleware/CheckRole.php.html#9">App\Http\Middleware\CheckRole</a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#12"><abbr title="App\Http\Controllers\AdminController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#18"><abbr title="App\Http\Controllers\AdminController::dashboard">dashboard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#27"><abbr title="App\Http\Controllers\AdminController::users">users</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#33"><abbr title="App\Http\Controllers\AdminController::editUserRole">editUserRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#39"><abbr title="App\Http\Controllers\AdminController::updateUserRole">updateUserRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#52"><abbr title="App\Http\Controllers\AdminController::events">events</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#58"><abbr title="App\Http\Controllers\AdminController::updateEventStatus">updateEventStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#71"><abbr title="App\Http\Controllers\AdminController::bookings">bookings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#77"><abbr title="App\Http\Controllers\AdminController::generateReport">generateReport</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmPasswordController.php.html#35"><abbr title="App\Http\Controllers\Auth\ConfirmPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerificationController.php.html#35"><abbr title="App\Http\Controllers\Auth\VerificationController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#85"><abbr title="App\Http\Controllers\BookingController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#95"><abbr title="App\Http\Controllers\BookingController::cancel">cancel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#129"><abbr title="App\Http\Controllers\BookingController::verifyBooking">verifyBooking</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#143"><abbr title="App\Http\Controllers\BookingController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#296"><abbr title="App\Http\Controllers\BookingController::cancelConfirmation">cancelConfirmation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#19"><abbr title="App\Http\Controllers\EventController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#29"><abbr title="App\Http\Controllers\EventController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#149"><abbr title="App\Http\Controllers\EventController::createTicketType">createTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#156"><abbr title="App\Http\Controllers\EventController::storeTicketType">storeTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#179"><abbr title="App\Http\Controllers\EventController::editTicketType">editTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#187"><abbr title="App\Http\Controllers\EventController::updateTicketType">updateTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#213"><abbr title="App\Http\Controllers\EventController::destroyTicketType">destroyTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganizerController.php.html#11"><abbr title="App\Http\Controllers\OrganizerController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganizerController.php.html#17"><abbr title="App\Http\Controllers\OrganizerController::dashboard">dashboard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganizerController.php.html#32"><abbr title="App\Http\Controllers\OrganizerController::events">events</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganizerController.php.html#38"><abbr title="App\Http\Controllers\OrganizerController::eventBookings">eventBookings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganizerController.php.html#46"><abbr title="App\Http\Controllers\OrganizerController::generateEventReport">generateEventReport</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#34"><abbr title="App\Http\Controllers\PaymentController::additionalPayment">additionalPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#131"><abbr title="App\Http\Controllers\PaymentController::processStripeAdditional">processStripeAdditional</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#173"><abbr title="App\Http\Controllers\PaymentController::processStripePayment">processStripePayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#223"><abbr title="App\Http\Controllers\PaymentController::additionalSuccess">additionalSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#237"><abbr title="App\Http\Controllers\PaymentController::additionalCancel">additionalCancel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#243"><abbr title="App\Http\Controllers\PaymentController::stripeSuccess">stripeSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#264"><abbr title="App\Http\Controllers\PaymentController::cancel">cancel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#329"><abbr title="App\Http\Controllers\PaymentController::handleWebhook">handleWebhook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Event.php.html#39"><abbr title="App\Models\Event::bookings">bookings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Notification.php.html#23"><abbr title="App\Models\Notification::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Payment.php.html#26"><abbr title="App\Models\Payment::booking">booking</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TicketType.php.html#21"><abbr title="App\Models\TicketType::event">event</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TicketType.php.html#26"><abbr title="App\Models\TicketType::bookings">bookings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TicketType.php.html#31"><abbr title="App\Models\TicketType::checkAvailability">checkAvailability</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#44"><abbr title="App\Models\User::events">events</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#49"><abbr title="App\Models\User::bookings">bookings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#54"><abbr title="App\Models\User::notifications">notifications</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/LoggingService.php.html#41"><abbr title="App\Services\LoggingService::logError">logError</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#73"><abbr title="App\Http\Controllers\EventController::edit">edit</abbr></a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#165"><abbr title="App\Http\Controllers\BookingController::update">update</abbr></a></td><td class="text-right">35%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#318"><abbr title="App\Http\Controllers\BookingController::cancelBooking">cancelBooking</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Middleware/CheckRole.php.html#16"><abbr title="App\Http\Middleware\CheckRole::handle">handle</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#31"><abbr title="App\Providers\AppServiceProvider::boot">boot</abbr></a></td><td class="text-right">78%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#81"><abbr title="App\Http\Controllers\EventController::update">update</abbr></a></td><td class="text-right">82%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#270"><abbr title="App\Http\Controllers\PaymentController::handleSuccessfulPayment">handleSuccessfulPayment</abbr></a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#54"><abbr title="App\Http\Controllers\PaymentController::processAdditionalPayment">processAdditionalPayment</abbr></a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#33"><abbr title="App\Http\Controllers\BookingController::store">store</abbr></a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#129"><abbr title="App\Http\Controllers\EventController::destroy">destroy</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#329"><abbr title="App\Http\Controllers\PaymentController::handleWebhook">handleWebhook</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#165"><abbr title="App\Http\Controllers\BookingController::update">update</abbr></a></td><td class="text-right">43</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#131"><abbr title="App\Http\Controllers\PaymentController::processStripeAdditional">processStripeAdditional</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Controllers/AdminController.php.html#77"><abbr title="App\Http\Controllers\AdminController::generateReport">generateReport</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#143"><abbr title="App\Http\Controllers\BookingController::edit">edit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#296"><abbr title="App\Http\Controllers\BookingController::cancelConfirmation">cancelConfirmation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#34"><abbr title="App\Http\Controllers\PaymentController::additionalPayment">additionalPayment</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#243"><abbr title="App\Http\Controllers\PaymentController::stripeSuccess">stripeSuccess</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#318"><abbr title="App\Http\Controllers\BookingController::cancelBooking">cancelBooking</abbr></a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#95"><abbr title="App\Http\Controllers\BookingController::cancel">cancel</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#213"><abbr title="App\Http\Controllers\EventController::destroyTicketType">destroyTicketType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#173"><abbr title="App\Http\Controllers\PaymentController::processStripePayment">processStripePayment</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#223"><abbr title="App\Http\Controllers\PaymentController::additionalSuccess">additionalSuccess</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#54"><abbr title="App\Http\Controllers\PaymentController::processAdditionalPayment">processAdditionalPayment</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Http/Middleware/CheckRole.php.html#16"><abbr title="App\Http\Middleware\CheckRole::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#81"><abbr title="App\Http\Controllers\EventController::update">update</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/PaymentController.php.html#270"><abbr title="App\Http\Controllers\PaymentController::handleSuccessfulPayment">handleSuccessfulPayment</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/BookingController.php.html#33"><abbr title="App\Http\Controllers\BookingController::store">store</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/EventController.php.html#129"><abbr title="App\Http\Controllers\EventController::destroy">destroy</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.9</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.9</a> and <a href="https://phpunit.de/">PHPUnit 11.5.14</a> at Mon Mar 31 1:01:42 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.9" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.9" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.9" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([7,0,0,1,1,2,1,2,0,1,0,14], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([46,0,0,0,2,0,0,2,1,5,0,36], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,11,"<a href=\"Http\/Controllers\/AdminController.php.html#10\">App\\Http\\Controllers\\AdminController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Auth\/ForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ForgotPasswordController<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#8\">App\\Http\\Controllers\\Auth\\LoginController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#11\">App\\Http\\Controllers\\Auth\\RegisterController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Auth\/ResetPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ResetPasswordController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/VerificationController.php.html#8\">App\\Http\\Controllers\\Auth\\VerificationController<\/a>"],[43.459915611814345,34,"<a href=\"Http\/Controllers\/BookingController.php.html#18\">App\\Http\\Controllers\\BookingController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#9\">App\\Http\\Controllers\\Controller<\/a>"],[49.56521739130435,20,"<a href=\"Http\/Controllers\/EventController.php.html#11\">App\\Http\\Controllers\\EventController<\/a>"],[100,2,"<a href=\"Http\/Controllers\/HomeController.php.html#8\">App\\Http\\Controllers\\HomeController<\/a>"],[0,5,"<a href=\"Http\/Controllers\/OrganizerController.php.html#9\">App\\Http\\Controllers\\OrganizerController<\/a>"],[36.93693693693694,37,"<a href=\"Http\/Controllers\/PaymentController.php.html#17\">App\\Http\\Controllers\\PaymentController<\/a>"],[100,4,"<a href=\"Http\/Middleware\/AuthLogging.php.html#10\">App\\Http\\Middleware\\AuthLogging<\/a>"],[66.66666666666666,3,"<a href=\"Http\/Middleware\/CheckRole.php.html#9\">App\\Http\\Middleware\\CheckRole<\/a>"],[100,2,"<a href=\"Mail\/BookingCancelled.php.html#10\">App\\Mail\\BookingCancelled<\/a>"],[100,2,"<a href=\"Mail\/BookingConfirmation.php.html#10\">App\\Mail\\BookingConfirmation<\/a>"],[100,2,"<a href=\"Mail\/BookingUpdated.php.html#10\">App\\Mail\\BookingUpdated<\/a>"],[100,0,"<a href=\"Models\/Admin.php.html#7\">App\\Models\\Admin<\/a>"],[100,0,"<a href=\"Models\/Attendee.php.html#7\">App\\Models\\Attendee<\/a>"],[100,5,"<a href=\"Models\/Booking.php.html#9\">App\\Models\\Booking<\/a>"],[66.66666666666666,3,"<a href=\"Models\/Event.php.html#8\">App\\Models\\Event<\/a>"],[0,1,"<a href=\"Models\/Notification.php.html#8\">App\\Models\\Notification<\/a>"],[100,0,"<a href=\"Models\/Organizer.php.html#7\">App\\Models\\Organizer<\/a>"],[0,1,"<a href=\"Models\/Payment.php.html#8\">App\\Models\\Payment<\/a>"],[0,3,"<a href=\"Models\/TicketType.php.html#8\">App\\Models\\TicketType<\/a>"],[50,6,"<a href=\"Models\/User.php.html#11\">App\\Models\\User<\/a>"],[80,2,"<a href=\"Providers\/AppServiceProvider.php.html#14\">App\\Providers\\AppServiceProvider<\/a>"],[28.57142857142857,3,"<a href=\"Services\/LoggingService.php.html#7\">App\\Services\\LoggingService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#12\">App\\Http\\Controllers\\AdminController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#18\">App\\Http\\Controllers\\AdminController::dashboard<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#27\">App\\Http\\Controllers\\AdminController::users<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#33\">App\\Http\\Controllers\\AdminController::editUserRole<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#39\">App\\Http\\Controllers\\AdminController::updateUserRole<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#52\">App\\Http\\Controllers\\AdminController::events<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#58\">App\\Http\\Controllers\\AdminController::updateEventStatus<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AdminController.php.html#71\">App\\Http\\Controllers\\AdminController::bookings<\/a>"],[0,3,"<a href=\"Http\/Controllers\/AdminController.php.html#77\">App\\Http\\Controllers\\AdminController::generateReport<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmPasswordController.php.html#35\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/LoginController.php.html#35\">App\\Http\\Controllers\\Auth\\LoginController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#38\">App\\Http\\Controllers\\Auth\\RegisterController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#49\">App\\Http\\Controllers\\Auth\\RegisterController::validator<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Auth\/RegisterController.php.html#64\">App\\Http\\Controllers\\Auth\\RegisterController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/VerificationController.php.html#35\">App\\Http\\Controllers\\Auth\\VerificationController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/BookingController.php.html#20\">App\\Http\\Controllers\\BookingController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/BookingController.php.html#25\">App\\Http\\Controllers\\BookingController::create<\/a>"],[88.88888888888889,2,"<a href=\"Http\/Controllers\/BookingController.php.html#33\">App\\Http\\Controllers\\BookingController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/BookingController.php.html#76\">App\\Http\\Controllers\\BookingController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/BookingController.php.html#85\">App\\Http\\Controllers\\BookingController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/BookingController.php.html#95\">App\\Http\\Controllers\\BookingController::cancel<\/a>"],[0,1,"<a href=\"Http\/Controllers\/BookingController.php.html#129\">App\\Http\\Controllers\\BookingController::verifyBooking<\/a>"],[0,3,"<a href=\"Http\/Controllers\/BookingController.php.html#143\">App\\Http\\Controllers\\BookingController::edit<\/a>"],[35.63218390804598,11,"<a href=\"Http\/Controllers\/BookingController.php.html#165\">App\\Http\\Controllers\\BookingController::update<\/a>"],[0,3,"<a href=\"Http\/Controllers\/BookingController.php.html#296\">App\\Http\\Controllers\\BookingController::cancelConfirmation<\/a>"],[66.66666666666666,8,"<a href=\"Http\/Controllers\/BookingController.php.html#318\">App\\Http\\Controllers\\BookingController::cancelBooking<\/a>"],[100,1,"<a href=\"Http\/Controllers\/EventController.php.html#13\">App\\Http\\Controllers\\EventController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/EventController.php.html#19\">App\\Http\\Controllers\\EventController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/EventController.php.html#29\">App\\Http\\Controllers\\EventController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/EventController.php.html#36\">App\\Http\\Controllers\\EventController::create<\/a>"],[100,2,"<a href=\"Http\/Controllers\/EventController.php.html#41\">App\\Http\\Controllers\\EventController::store<\/a>"],[33.33333333333333,1,"<a href=\"Http\/Controllers\/EventController.php.html#73\">App\\Http\\Controllers\\EventController::edit<\/a>"],[82.6086956521739,3,"<a href=\"Http\/Controllers\/EventController.php.html#81\">App\\Http\\Controllers\\EventController::update<\/a>"],[100,2,"<a href=\"Http\/Controllers\/EventController.php.html#118\">App\\Http\\Controllers\\EventController::updateStatus<\/a>"],[88.88888888888889,2,"<a href=\"Http\/Controllers\/EventController.php.html#129\">App\\Http\\Controllers\\EventController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/EventController.php.html#149\">App\\Http\\Controllers\\EventController::createTicketType<\/a>"],[0,1,"<a href=\"Http\/Controllers\/EventController.php.html#156\">App\\Http\\Controllers\\EventController::storeTicketType<\/a>"],[0,1,"<a href=\"Http\/Controllers\/EventController.php.html#179\">App\\Http\\Controllers\\EventController::editTicketType<\/a>"],[0,1,"<a href=\"Http\/Controllers\/EventController.php.html#187\">App\\Http\\Controllers\\EventController::updateTicketType<\/a>"],[0,2,"<a href=\"Http\/Controllers\/EventController.php.html#213\">App\\Http\\Controllers\\EventController::destroyTicketType<\/a>"],[100,1,"<a href=\"Http\/Controllers\/HomeController.php.html#15\">App\\Http\\Controllers\\HomeController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/HomeController.php.html#25\">App\\Http\\Controllers\\HomeController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/OrganizerController.php.html#11\">App\\Http\\Controllers\\OrganizerController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/OrganizerController.php.html#17\">App\\Http\\Controllers\\OrganizerController::dashboard<\/a>"],[0,1,"<a href=\"Http\/Controllers\/OrganizerController.php.html#32\">App\\Http\\Controllers\\OrganizerController::events<\/a>"],[0,1,"<a href=\"Http\/Controllers\/OrganizerController.php.html#38\">App\\Http\\Controllers\\OrganizerController::eventBookings<\/a>"],[0,1,"<a href=\"Http\/Controllers\/OrganizerController.php.html#46\">App\\Http\\Controllers\\OrganizerController::generateEventReport<\/a>"],[100,1,"<a href=\"Http\/Controllers\/PaymentController.php.html#19\">App\\Http\\Controllers\\PaymentController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/PaymentController.php.html#24\">App\\Http\\Controllers\\PaymentController::create<\/a>"],[0,3,"<a href=\"Http\/Controllers\/PaymentController.php.html#34\">App\\Http\\Controllers\\PaymentController::additionalPayment<\/a>"],[86.66666666666667,5,"<a href=\"Http\/Controllers\/PaymentController.php.html#54\">App\\Http\\Controllers\\PaymentController::processAdditionalPayment<\/a>"],[0,4,"<a href=\"Http\/Controllers\/PaymentController.php.html#131\">App\\Http\\Controllers\\PaymentController::processStripeAdditional<\/a>"],[0,2,"<a href=\"Http\/Controllers\/PaymentController.php.html#173\">App\\Http\\Controllers\\PaymentController::processStripePayment<\/a>"],[100,1,"<a href=\"Http\/Controllers\/PaymentController.php.html#209\">App\\Http\\Controllers\\PaymentController::processPayPalPayment<\/a>"],[0,2,"<a href=\"Http\/Controllers\/PaymentController.php.html#223\">App\\Http\\Controllers\\PaymentController::additionalSuccess<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PaymentController.php.html#237\">App\\Http\\Controllers\\PaymentController::additionalCancel<\/a>"],[0,3,"<a href=\"Http\/Controllers\/PaymentController.php.html#243\">App\\Http\\Controllers\\PaymentController::stripeSuccess<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PaymentController.php.html#264\">App\\Http\\Controllers\\PaymentController::cancel<\/a>"],[86.48648648648648,3,"<a href=\"Http\/Controllers\/PaymentController.php.html#270\">App\\Http\\Controllers\\PaymentController::handleSuccessfulPayment<\/a>"],[0,10,"<a href=\"Http\/Controllers\/PaymentController.php.html#329\">App\\Http\\Controllers\\PaymentController::handleWebhook<\/a>"],[100,4,"<a href=\"Http\/Middleware\/AuthLogging.php.html#19\">App\\Http\\Middleware\\AuthLogging::handle<\/a>"],[66.66666666666666,3,"<a href=\"Http\/Middleware\/CheckRole.php.html#16\">App\\Http\\Middleware\\CheckRole::handle<\/a>"],[100,1,"<a href=\"Mail\/BookingCancelled.php.html#22\">App\\Mail\\BookingCancelled::__construct<\/a>"],[100,1,"<a href=\"Mail\/BookingCancelled.php.html#32\">App\\Mail\\BookingCancelled::build<\/a>"],[100,1,"<a href=\"Mail\/BookingConfirmation.php.html#22\">App\\Mail\\BookingConfirmation::__construct<\/a>"],[100,1,"<a href=\"Mail\/BookingConfirmation.php.html#32\">App\\Mail\\BookingConfirmation::build<\/a>"],[100,1,"<a href=\"Mail\/BookingUpdated.php.html#22\">App\\Mail\\BookingUpdated::__construct<\/a>"],[100,1,"<a href=\"Mail\/BookingUpdated.php.html#32\">App\\Mail\\BookingUpdated::build<\/a>"],[100,1,"<a href=\"Models\/Booking.php.html#23\">App\\Models\\Booking::boot<\/a>"],[100,1,"<a href=\"Models\/Booking.php.html#32\">App\\Models\\Booking::user<\/a>"],[100,1,"<a href=\"Models\/Booking.php.html#37\">App\\Models\\Booking::event<\/a>"],[100,1,"<a href=\"Models\/Booking.php.html#42\">App\\Models\\Booking::ticketType<\/a>"],[100,1,"<a href=\"Models\/Booking.php.html#47\">App\\Models\\Booking::payment<\/a>"],[100,1,"<a href=\"Models\/Event.php.html#29\">App\\Models\\Event::user<\/a>"],[100,1,"<a href=\"Models\/Event.php.html#34\">App\\Models\\Event::ticketTypes<\/a>"],[0,1,"<a href=\"Models\/Event.php.html#39\">App\\Models\\Event::bookings<\/a>"],[0,1,"<a href=\"Models\/Notification.php.html#23\">App\\Models\\Notification::user<\/a>"],[0,1,"<a href=\"Models\/Payment.php.html#26\">App\\Models\\Payment::booking<\/a>"],[0,1,"<a href=\"Models\/TicketType.php.html#21\">App\\Models\\TicketType::event<\/a>"],[0,1,"<a href=\"Models\/TicketType.php.html#26\">App\\Models\\TicketType::bookings<\/a>"],[0,1,"<a href=\"Models\/TicketType.php.html#31\">App\\Models\\TicketType::checkAvailability<\/a>"],[0,1,"<a href=\"Models\/User.php.html#44\">App\\Models\\User::events<\/a>"],[0,1,"<a href=\"Models\/User.php.html#49\">App\\Models\\User::bookings<\/a>"],[0,1,"<a href=\"Models\/User.php.html#54\">App\\Models\\User::notifications<\/a>"],[100,1,"<a href=\"Models\/User.php.html#59\">App\\Models\\User::isAdmin<\/a>"],[100,1,"<a href=\"Models\/User.php.html#64\">App\\Models\\User::isOrganizer<\/a>"],[100,1,"<a href=\"Models\/User.php.html#69\">App\\Models\\User::isAttendee<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#21\">App\\Providers\\AppServiceProvider::register<\/a>"],[78.94736842105263,1,"<a href=\"Providers\/AppServiceProvider.php.html#31\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Services\/LoggingService.php.html#16\">App\\Services\\LoggingService::logAuthEvent<\/a>"],[100,1,"<a href=\"Services\/LoggingService.php.html#29\">App\\Services\\LoggingService::logCrudEvent<\/a>"],[0,1,"<a href=\"Services\/LoggingService.php.html#41\">App\\Services\\LoggingService::logError<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

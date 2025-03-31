@@ -1,0 +1,42 @@
+
+
+[1;37;40mCode Coverage Report:      [0m
+[1;37;40m  2025-03-31 01:01:42      [0m
+[1;37;40m                           [0m
+[1;37;40m Summary:                  [0m
+[37;41m  Classes: 34.78% (8/23)   [0m
+[37;41m  Methods: 39.13% (36/92)  [0m
+[37;41m  Lines:   42.16% (312/740)[0m
+
+App\Http\Controllers\Auth\LoginController
+  [30;42mMethods: 100.00% ( 1/ 1)[0m   [30;42mLines: 100.00% (  2/  2)[0m
+App\Http\Controllers\Auth\RegisterController
+  [30;42mMethods: 100.00% ( 3/ 3)[0m   [30;42mLines: 100.00% ( 11/ 11)[0m
+App\Http\Controllers\BookingController
+  [37;41mMethods:  27.27% ( 3/11)[0m   [37;41mLines:  43.46% (103/237)[0m
+App\Http\Controllers\EventController
+  [37;41mMethods:  28.57% ( 4/14)[0m   [37;41mLines:  49.57% ( 57/115)[0m
+App\Http\Controllers\HomeController
+  [30;42mMethods: 100.00% ( 2/ 2)[0m   [30;42mLines: 100.00% (  6/  6)[0m
+App\Http\Controllers\PaymentController
+  [37;41mMethods:  23.08% ( 3/13)[0m   [37;41mLines:  36.94% ( 82/222)[0m
+App\Http\Middleware\AuthLogging
+  [30;42mMethods: 100.00% ( 1/ 1)[0m   [30;42mLines: 100.00% (  9/  9)[0m
+App\Http\Middleware\CheckRole
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [30;43mLines:  66.67% (  2/  3)[0m
+App\Mail\BookingCancelled
+  [30;42mMethods: 100.00% ( 2/ 2)[0m   [30;42mLines: 100.00% (  3/  3)[0m
+App\Mail\BookingConfirmation
+  [30;42mMethods: 100.00% ( 2/ 2)[0m   [30;42mLines: 100.00% (  3/  3)[0m
+App\Mail\BookingUpdated
+  [30;42mMethods: 100.00% ( 2/ 2)[0m   [30;42mLines: 100.00% (  3/  3)[0m
+App\Models\Booking
+  [30;42mMethods: 100.00% ( 5/ 5)[0m   [30;42mLines: 100.00% (  8/  8)[0m
+App\Models\Event
+  [30;43mMethods:  66.67% ( 2/ 3)[0m   [30;43mLines:  66.67% (  2/  3)[0m
+App\Models\User
+  [37;41mMethods:  50.00% ( 3/ 6)[0m   [37;41mLines:  50.00% (  3/  6)[0m
+App\Providers\AppServiceProvider
+  [37;41mMethods:  50.00% ( 1/ 2)[0m   [30;43mLines:  80.00% ( 16/ 20)[0m
+App\Services\LoggingService
+  [30;43mMethods:  66.67% ( 2/ 3)[0m   [37;41mLines:  28.57% (  2/  7)[0m
