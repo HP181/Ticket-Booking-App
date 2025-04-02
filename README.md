@@ -108,6 +108,9 @@ A comprehensive Laravel-based application for managing events, ticket sales, and
    php artisan key:generate
    ```
 
+3. **Start Apache & MySql on Xampp and Create event_ticket_system Database in PhpMyAdmin file**
+
+
 4. **Configure database in .env file**
    ```
    DB_CONNECTION=mysql
@@ -142,28 +145,20 @@ A comprehensive Laravel-based application for managing events, ticket sales, and
    ```
    STRIPE_KEY=your_stripe_public_key
    STRIPE_SECRET=your_stripe_secret_key
-   STRIPE_WEBHOOK_SECRET=your_webhook_secret
    ```
-
-2. **PayPal Configuration**
-   Add your PayPal API credentials to the `.env` file:
-   ```
-   PAYPAL_CLIENT_ID=your_paypal_client_id
-   PAYPAL_SECRET=your_paypal_secret
-   PAYPAL_MODE=sandbox
-   ```
+   
 
 ### Email Configuration
 
 Configure your email settings in the `.env` file:
 ```
 MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=your_username
-MAIL_PASSWORD=your_password
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your_username (email)
+MAIL_PASSWORD=your_password (APP Password)
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=events@example.com
+MAIL_FROM_ADDRESS=your_email
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
@@ -328,7 +323,11 @@ The application follows the standard Laravel directory structure with a few addi
 
 ## Contributors
 
-- Your Name - Initial work and development
+- Hitkumar Patel
+- Hrishikesh More
+- Rudra Patel
+- Jagrutiben Kataria
+  
 
 ## Acknowledgments
 
