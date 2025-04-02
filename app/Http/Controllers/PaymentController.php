@@ -209,7 +209,7 @@ class PaymentController extends Controller
     public function processPayPalPayment(Request $request, $bookingId)
     {
         // For MVP, we'll simulate PayPal payments
-        // In a real app, we would integrate with PayPal SDK here
+        // In a real app, we would integrate with PayPal SDK here BUT For now we are just processing payments direcyly
 
         $booking = Booking::with(['event', 'ticketType'])
             ->where('user_id', auth()->id())
