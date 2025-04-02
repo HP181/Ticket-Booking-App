@@ -313,9 +313,25 @@ The application follows the standard Laravel directory structure with a few addi
 - `routes/web.php`: Web routes with role-based access control
 - `tests/`: Unit and Feature tests
 
-## Screenshots
 
-(Include screenshots of key interfaces here)
+## UI Diagrams are available at
+  ```
+   /Screenshots/UI/
+   ```
+
+## UML & Sequence Diagrams are available at
+  ```
+   /Screenshots/
+   ```
+
+
+
+## Screenshots
+![Admin Dashboard](https://github.com/user-attachments/assets/03a54f38-b890-4064-9d41-5d7dac4f5f00)
+![Organizer Dashboard](https://github.com/user-attachments/assets/435d9275-129a-4776-a2c5-1eff22ae847d)
+![Attendee Dashboard](https://github.com/user-attachments/assets/172fb1a1-d6b9-412f-829a-205226990265)
+
+
 
 ## License
 
