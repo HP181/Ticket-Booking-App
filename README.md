@@ -174,6 +174,7 @@ Multiple log channels are configured for different types of events:
 
 ### Default Users
 
+#### Below are the default seeders without real emails, So to get email of reset password or ticket confirmartion or its updates, make sure to register with your real email.
 After running the seeders, the following users will be available:
 
 1. **Admin**
