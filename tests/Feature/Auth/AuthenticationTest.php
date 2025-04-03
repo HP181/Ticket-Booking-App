@@ -19,12 +19,12 @@ class AuthenticationTest extends TestCase
     public function test_users_can_authenticate_using_the_login_screen()
     {
         $user = User::factory()->create([
-            'email' => 'test@example.com',
+            'email' => 'abc@example.com',
             'password' => bcrypt('password'),
         ]);
 
         $response = $this->post('/login', [
-            'email' => 'test@example.com',
+            'email' => 'abc@example.com',
             'password' => 'password',
         ]);
 
@@ -35,12 +35,12 @@ class AuthenticationTest extends TestCase
     public function test_users_can_not_authenticate_with_invalid_password()
     {
         $user = User::factory()->create([
-            'email' => 'test@example.com',
+            'email' => 'abc@example.com',
             'password' => bcrypt('password'),
         ]);
 
         $this->post('/login', [
-            'email' => 'test@example.com',
+            'email' => 'abc@example.com',
             'password' => 'wrong-password',
         ]);
 
@@ -57,7 +57,7 @@ class AuthenticationTest extends TestCase
     {
         $response = $this->post('/register', [
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'abc@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
